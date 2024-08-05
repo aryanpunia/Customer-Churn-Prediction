@@ -23,6 +23,7 @@ The dataset includes the following features:
 - **Exited**: Whether the customer left the bank (1 = Yes, 0 = No)
 
 ***Usage***
+<br>
 **Data Preprocessing**:
 
 Load the dataset and preprocess it by handling missing values, encoding categorical variables, and scaling numerical features.
