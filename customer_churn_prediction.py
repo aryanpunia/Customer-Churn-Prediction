@@ -8,15 +8,15 @@ data = pd.read_csv('Churn_Modelling.csv')
 X = data.iloc[:,[3,6,7,8,9,10,11,12]].values
 y = data.iloc[:, -1].values
 
-# from sklearn.impute import SimpleImputer
-# imputer = SimpleImputer(missing_values=np.nan, strategy='most_frequent')
-# imputer.fit(X)
-# X = imputer.transform(X)
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(missing_values=np.nan, strategy='most_frequent')
+imputer.fit(X)
+X = imputer.transform(X)
 
-# from sklearn.compose import ColumnTransformer
-# from sklearn.preprocessing import OneHotEncoder
-# ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
-# X[:,[4,5]] = np.array(ct.fit_transform(X[:,[4,5]]))
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
+X[:,[4,5]] = np.array(ct.fit_transform(X[:,[4,5]]))
 
 X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.2,random_state=1)
 
